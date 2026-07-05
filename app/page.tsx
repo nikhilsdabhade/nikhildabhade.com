@@ -1,3 +1,9 @@
+import AboutMe from "@/components/AboutMe";
+
 export default function Page() {
-  return <div>hello world</div>;
+  return (
+    <div className="w-full">
+      <AboutMe />
+    </div>
+  );
 }
