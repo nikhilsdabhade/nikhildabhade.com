@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { HeroBackground } from "@/components/HeroBackground";
 
 export default function RootLayout({
   children,
@@ -20,8 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white min-h-screen flex flex-col font-sans antialiased">
+      <body className="relative bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white min-h-screen flex flex-col font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <HeroBackground />
           <Navbar />
           <main className="flex-1">
             {children}
