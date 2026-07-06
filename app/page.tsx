@@ -4,8 +4,7 @@ import { HeroBackground } from "@/components/HeroBackground";
 
 export default function Page() {
   return (
-    <div className="relative w-full flex flex-col items-center">
-      <HeroBackground />
+    <div className="w-full flex flex-col items-center">
       <HelloWorld>
         <AboutMe />
       </HelloWorld>

@@ -264,7 +264,7 @@ const MascotLetter: React.FC<MascotProps> = ({ letter }) => {
 
 export const HelloWorld = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <div className="flex items-center justify-between w-full text-white px-0 md:px-42 py-8">
+    <div className="flex items-center justify-between w-full text-neutral-900 dark:text-white px-0 md:px-42 py-8">
       <div className="hidden md:flex gap-[0.4em] font-bold text-3xl md:text-5xl cursor-default select-none tracking-tight">
         <div className="flex gap-[0.2em]">
           <MascotLetter letter="H" />
