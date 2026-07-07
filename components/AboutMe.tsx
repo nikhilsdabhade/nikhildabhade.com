@@ -6,9 +6,11 @@ export default function AboutMe() {
       </h1>
       <div className="mt-8 space-y-6 text-base font-normal text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <p>
-          Hey! I'm Nikhil Dabhade, a Frontend Developer and Open Source Builder.
+          I'm a Frontend Developer and Open Source Builder.
         </p>
         <p>
+          For the past 2 years, I've been building React and TypeScript
+          applications focused on performance and developer experience.
           Currently building <a
             href="https://github.com/ParallelBytes/IngestX"
             target="_blank"
