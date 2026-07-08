@@ -43,6 +43,8 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-5">
+        <Link href="#" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">Blog</Link>
+        <Link href="#" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">Projects</Link>
         <Link href="https://github.com/nikhilsdabhade" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
           <FontAwesomeIcon icon={faGithub} className="w-[18px] h-[18px]" />
         </Link>
@@ -56,7 +58,7 @@ export default function Navbar() {
           aria-label="Toggle theme"
         >
           {mounted ? (
-            <FontAwesomeIcon icon={resolvedTheme === "dark" ? faSun : faMoon} className="w-[18px] h-[18px]" style={{ cursor: "pointer" }} />
+            <FontAwesomeIcon icon={resolvedTheme === "dark" ? faSun : faMoon} className="w-[18px] h-[18px] cursor-pointer" />
           ) : (
             <div className="w-[18px] h-[18px]"></div> // Placeholder to prevent layout shift
           )}
