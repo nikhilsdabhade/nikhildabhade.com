@@ -9,6 +9,27 @@ config.autoAddCss = false
 export const metadata: Metadata = {
   title: "Nikhil Dabhade",
   description: "Nikhil Dabhade Personal Portfolio",
+  openGraph: {
+    title: "Nikhil Dabhade",
+    description: "Nikhil Dabhade Personal Portfolio",
+    url: "https://nikhildabhade.com/",
+    siteName: "Nikhil Dabhade",
+    images: [
+      {
+        url: "https://nikhildabhade.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nikhil Dabhade",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nikhil Dabhade",
+    description: "Your description",
+    images: ["/og-image.png"],
+  },
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
