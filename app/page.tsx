@@ -1,6 +1,6 @@
 import AboutMe from "@/components/AboutMe";
 import HelloWorld from "@/components/HelloWorld";
-import { HeroBackground } from "@/components/HeroBackground";
+import FeaturedProjects from "@/components/FeaturedProjects";
 
 export default function Page() {
   return (
@@ -8,6 +8,7 @@ export default function Page() {
       <HelloWorld>
         <AboutMe />
       </HelloWorld>
+      <FeaturedProjects />
     </div>
   );
 }
