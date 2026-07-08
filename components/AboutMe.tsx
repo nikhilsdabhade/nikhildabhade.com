@@ -1,15 +1,15 @@
 export default function AboutMe() {
   return (
-    <section className="flex flex-col min-h-[70vh] py-12 md:py-24 px-6 max-w-3xl mx-auto">
+    <section className="flex flex-col py-12 md:py-24 px-6 max-w-3xl mx-auto">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
         Nikhil Dabhade
       </h1>
       <div className="mt-8 space-y-6 text-base font-normal text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <p>
-          I'm a Frontend Developer and Open Source Builder.
+          I&apos;m a Frontend Developer and Open Source Builder.
         </p>
         <p>
-          For the past 2 years, I've been building React and TypeScript
+          For the past 2 years, I&apos;ve been building React and TypeScript
           applications focused on performance and developer experience.
           Currently building <a
             href="https://github.com/ParallelBytes/IngestX"
