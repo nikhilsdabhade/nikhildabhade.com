@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Play } from "lucide-react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub,faNpm } from "@fortawesome/free-brands-svg-icons";
 
 interface Project {
   id: string;
@@ -167,23 +167,30 @@ const FeaturedProjects = () => {
                 </div>
 
                 <div className="flex items-center gap-8">
-                  <Link
+                  <a
                     href={project.links.github}
                     target="_blank"
-                    className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors"
+                    className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
                     <FontAwesomeIcon
                       icon={faGithub}
                       className="w-[18px] h-[18px]"
                     />
-                  </Link>
+                  <span className="relative">
+                      Github
+                      <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-emerald-500 transition-all group-hover:w-full" />
+                    </span>
+                  </a>
                   <a
                     href={project.links.npm}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                    className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                     <FontAwesomeIcon
+                      icon={faNpm}
+                      className="w-[18px] h-[18px]"
+                    />
                     <span className="relative">
                       NPM
                       <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-emerald-500 transition-all group-hover:w-full" />
