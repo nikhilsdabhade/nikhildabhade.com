@@ -76,7 +76,7 @@ const projects: Project[] = [
 
 const FeaturedProjects = () => {
   return (
-    <section id="projects" className="w-full relative text-neutral-400 pt-16 md:pt-24 pb-24 md:pb-[120px] font-sans">
+    <section id="projects" className="w-full relative text-neutral-600 dark:text-neutral-400 pt-16 md:pt-24 pb-24 md:pb-[120px] font-sans">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,15 +111,15 @@ const FeaturedProjects = () => {
                   <div className="h-[1px] w-12 bg-emerald-500/30" />
                 </div>
 
-                <h3 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4">
+                <h3 className="text-4xl md:text-5xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
                   {project.title}
                 </h3>
 
-                <p className="text-lg md:text-xl text-neutral-300 font-medium mb-6">
+                <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 font-medium mb-6">
                   {project.subtitle}
                 </p>
 
-                <p className="text-neutral-400 leading-relaxed mb-8">
+                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8">
                   {project.description}
                 </p>
 
@@ -127,7 +127,7 @@ const FeaturedProjects = () => {
                   {project.features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-2.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
-                      <span className="text-sm text-neutral-300">{feature}</span>
+                      <span className="text-sm text-neutral-600 dark:text-neutral-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -136,7 +136,7 @@ const FeaturedProjects = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-4 py-1.5 rounded-full text-xs font-medium border border-[#2A2A2A] text-neutral-300 bg-white/5"
+                      className="px-4 py-1.5 rounded-full text-xs font-medium border border-neutral-200 dark:border-[#2A2A2A] text-neutral-600 dark:text-neutral-300 bg-neutral-100 dark:bg-white/5"
                     >
                       {tech}
                     </span>
@@ -154,7 +154,7 @@ const FeaturedProjects = () => {
                       href={project.links.docs || project.links.npm}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors"
+                      className="group flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span className="relative">
@@ -189,14 +189,14 @@ const FeaturedProjects = () => {
                 className={`w-full lg:w-[55%] ${idx % 2 === 1 ? "lg:order-1" : "lg:order-2"
                   }`}
               >
-                <div className="group relative rounded-2xl border border-[#2A2A2A] bg-[#0A0A0A] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-[#3A3A3A] hover:shadow-[0_20px_40px_-20px_rgba(16,185,129,0.15)]">
+                <div className="group relative rounded-2xl border border-neutral-200 dark:border-[#2A2A2A] bg-neutral-50 dark:bg-[#0A0A0A] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-neutral-300 dark:hover:border-[#3A3A3A] hover:shadow-[0_20px_40px_-20px_rgba(16,185,129,0.15)]">
 
                   {/* Browser Top Bar */}
-                  <div className="flex items-center justify-between px-4 py-3 border-b border-[#2A2A2A] bg-[#0A0A0A]">
+                  <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200 dark:border-[#2A2A2A] bg-neutral-50 dark:bg-[#0A0A0A]">
                     <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-[#2A2A2A]" />
-                      <div className="w-3 h-3 rounded-full bg-[#2A2A2A]" />
-                      <div className="w-3 h-3 rounded-full bg-[#2A2A2A]" />
+                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
+                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
+                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
                     </div>
 
                     {/* LIVE Badge */}
@@ -209,8 +209,8 @@ const FeaturedProjects = () => {
                   </div>
 
                   {/* Browser Content (16:9 Aspect Ratio container for GIF) */}
-                  <div className="relative aspect-video w-full bg-[#111] overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center text-neutral-600 text-sm">
+                  <div className="relative aspect-video w-full bg-neutral-100 dark:bg-[#111] overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-600 text-sm">
                       {/* Fallback text while image loads or if missing */}
                       Project Preview
                     </div>
