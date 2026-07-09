@@ -222,9 +222,9 @@ const FeaturedProjects = () => {
                   {/* Browser Top Bar */}
                   <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200 dark:border-[#2A2A2A] bg-neutral-50 dark:bg-[#0A0A0A]">
                     <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
-                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
-                      <div className="w-3 h-3 rounded-full bg-neutral-300 dark:bg-[#2A2A2A]" />
+                      <div className="w-3 h-3 rounded-full bg-[#FF605C] cursor-pointer" />
+                      <div className="w-3 h-3 rounded-full bg-[#FFBD44] cursor-pointer" />
+                      <div className="w-3 h-3 rounded-full bg-[#00CA4E] cursor-pointer" />
                     </div>
 
                     {/* LIVE Badge */}
