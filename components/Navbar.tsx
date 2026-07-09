@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin,faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -34,32 +34,37 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between px-6 py-5 sticky top-0 z-50">
-      <div className="flex items-center gap-3">
-        <div className="w-2 h-2 rounded-full bg-[#00e59b]"></div>
-        <span className="text-xs font-mono tracking-[0.2em] text-neutral-800 dark:text-white/90 uppercase">
+    <nav className="flex items-center justify-between px-4 md:px-6 py-4 md:py-5 sticky top-0 z-50 bg-white/70 dark:bg-[#0a0a0a]/70 backdrop-blur-md border-b border-neutral-200 dark:border-[#2A2A2A]/50">
+      <div className="flex items-center gap-2 md:gap-3">
+        <div className="w-2 h-2 rounded-full bg-[#00e59b] shrink-0"></div>
+        <span className="text-[10px] sm:text-xs font-mono tracking-[0.2em] text-neutral-800 dark:text-white/90 uppercase">
           NIKHIL_DABHADE <span className="text-neutral-400 dark:text-white/40 mx-1">/ V2.3.0</span>
         </span>
       </div>
 
-      <div className="flex items-center gap-5">
-        <Link href="#" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">Blog</Link>
-        <Link 
-          href="#projects" 
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors"
-        >
-          Projects
-        </Link>
-        <Link href="https://github.com/nikhilsdabhade" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
-          <FontAwesomeIcon icon={faGithub} className="w-[18px] h-[18px]" />
-        </Link>
-        <Link href="https://www.linkedin.com/in/nikhil-dabhade/" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
-          <FontAwesomeIcon icon={faLinkedin} className="w-[18px] h-[18px]" />
-        </Link>
+      <div className="flex items-center gap-4 md:gap-5 text-sm md:text-base">
+        <div className="hidden md:flex items-center gap-4 md:gap-5">
+          <Link href="#" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">Blog</Link>
+          <Link 
+            href="#projects" 
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors"
+          >
+            Projects
+          </Link>
+          <Link href="https://github.com/nikhilsdabhade" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
+            <FontAwesomeIcon icon={faGithub} className="w-[18px] h-[18px]" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/nikhil-dabhade/" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
+            <FontAwesomeIcon icon={faLinkedin} className="w-[18px] h-[18px]" />
+          </Link>
+          <Link href="https://x.com/nikhilsdabhade" target="_blank" className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors">
+            <FontAwesomeIcon icon={faXTwitter} className="w-[18px] h-[18px]" />
+          </Link>
+        </div>
         <button
           suppressHydrationWarning
           onClick={toggleTheme}
