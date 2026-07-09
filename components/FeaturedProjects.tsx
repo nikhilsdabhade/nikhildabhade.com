@@ -76,7 +76,7 @@ const projects: Project[] = [
 
 const FeaturedProjects = () => {
   return (
-    <section className="w-full relative text-neutral-400 pt-16 md:pt-24 pb-24 md:pb-[120px] font-sans">
+    <section id="projects" className="w-full relative text-neutral-400 pt-16 md:pt-24 pb-24 md:pb-[120px] font-sans">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
