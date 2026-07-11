@@ -8,9 +8,9 @@ import {
 export default function AboutMe() {
   return (
     <section className="flex flex-col py-12 md:py-24 px-6 max-w-3xl mx-auto">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
-        Nikhil Dabhade
-      </h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+          Nikhil Dabhade
+        </h1>
       <div className="mt-8 space-y-6 text-base font-normal text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <p>I&apos;m a Frontend Developer and Open Source Builder.</p>
         <p>
@@ -36,12 +36,16 @@ export default function AboutMe() {
           </a>
         </p>
         <p>
-          I also  <a
-            href="#"
+          I also{" "}
+          <a
+            href="/blogs"
             rel="noopener noreferrer"
             className="border-b border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 transition-colors"
-          >write</a> about React, rendering performance, and developer
-          tooling, sharing things I learn while building.
+          >
+            write
+          </a>{" "}
+          about React, rendering performance, and developer tooling, sharing
+          things I learn while building.
         </p>
         <p>
           When I&apos;m not coding you&apos;ll probably find me reading, playing
