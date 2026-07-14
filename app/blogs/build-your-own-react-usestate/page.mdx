@@ -1,0 +1,197 @@
+export const metadata = {
+  title: 'Build Your Own React useState Hook Under 40 Lines',
+  description: 'Understand the mental model behind useState by building a tiny version of it from scratch.',
+}
+
+`useState` looks simple on the surface, but behind it is one of the core ideas that makes React work: persistent state + re-rendering. In this article, we'll build a tiny version of useState ourselves to understand the mental model behind it.
+
+## Understanding the Basic Idea Behind useState
+
+First, we know that the useState returns a state and a function to update that state.
+
+```typescript
+const [state, setState] = useState()
+```
+
+Think of this as a function that returns a value and a setter function which updates the value.
+
+```typescript
+function useState() {
+    let state;
+
+    const setState = (newState) => {
+      state = newState;
+    };
+
+    return [state, setState];
+ }
+```
+
+That's it! Quite simple isn't it.
+
+Not really, we are missing the initial value and one issue which you might notice if you look carefully (Take a moment to find the issue).
+
+## Why Our State Keeps Resetting
+
+The issue is that we have declared the state inside useState, So on every render the useState will get called and the state will become undefined every time.
+
+`First render -> value was undefined -> you made it to 1 -> Second Render -> value again became undefined.`
+
+After fixing that issue, we finally have something closer to what we wanted.
+
+## Persisting State Between Renders
+
+```typescript
+let state;
+function useState<T>(initialValue:T) {
+    if(state === undefined){
+      state = initialValue
+    }
+    const setState = (newState:T) => {
+      state = newState;
+    };
+
+    return [state, setState];
+ }
+```
+
+Nice! we have built our own useState hook and now it's time to use it and check the results of our hard work. I've used our hook inside that App.tsx and added one handleIncrement to increase the count
+
+![useState hook implementation](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oikaidfk2tia78s1u3dt.png)
+
+## Why Updating State Still Doesn't Work
+
+Wait a second, even after clicking on the increment button the number is not updating. But why's that!
+
+Because React has no idea the state changed. When React's real useState updates, React schedules the component to render again.
+
+So we'll need to tell the react to render the component if our state changes.
+
+## Making React Re-render
+
+That's where the `useSyncExternalStore` react hook comes into the picture. This hook tells the react to check for our state updates, re-render the component and give us the updated state. 
+
+## Understanding useSyncExternalStore
+
+```typescript
+const value = useSyncExternalStore(
+  subscribe,
+  getSnapshot
+);
+```
+React expects two functions here:
+
+- **subscribe** → tells React how to listen for changes
+- **getSnapshot** → tells React how to read the latest value
+
+That’s it.
+
+Unlike useState, React does not manage the state for you here.
+
+Instead, React simply acts as a subscriber to an external store.
+
+### Understanding `subscribe`
+
+When React calls your subscribe function, it gives you a listener callback.
+
+```typescript
+const subscribe = (listener: () => void) => {
+  listeners.add(listener);
+
+  return () => listeners.delete(listener);
+};
+```
+
+That listener is the function React wants you to call whenever your store changes.
+
+Later, when state updates, we manually trigger all listeners:
+
+```typescript
+listeners.forEach((listener) => listener());
+```
+
+And once those listeners run, React knows it should re-render subscribed components.
+
+## Final Implementation
+
+```typescript
+// useState.ts
+import { useSyncExternalStore } from "react";
+
+const listeners = new Set<() => void>();
+let state;
+
+function useState<T>(initialState: T) {
+  if (state === undefined) {
+    state = initialState;
+  }
+  const setState = (newState: T) => {
+    if (state === newState) return;
+    state = newState;
+    listeners.forEach((listener) => listener());
+  };
+
+  const getState = () => state;
+
+  const subscribe = (listener) => {
+    listeners.add(listener);
+
+    return () => listeners.delete(listener);
+  };
+
+  const updatedState = useSyncExternalStore(subscribe, getState);
+
+  return [updatedState, setState];
+}
+
+export { useState };
+```
+
+We have stored the listeners in a set and called them only when the state changes (if previous value is 1 and new value is also 1 then just return, no re-renders).
+
+What happens after you click the handleIncrement:
+
+```text
+setState()
+   ↓
+update state
+   ↓
+notify listeners
+   ↓
+React re-renders
+   ↓
+new state appears
+```
+
+
+Now you'll see that our custom hook is finally working!
+
+
+![final working useState hook implementation](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v73st2jsmiy1vjxd0fms.gif)
+
+
+
+
+## Where Our Implementation Falls Short
+
+So is this how the React useState works? ummm not really, i mean we have a good mental model of how it might be but the actual react useState does a lot more than this.
+
+1. Our version doesn't support multiple state, even if you create more than one state using our hook it will just override the previous state.
+
+2. React supports functional updates `setState(prev => prev + 1);`, _something you can build on top of this as practise_.
+
+3. Our state compare in setState (line no. 11) works for primitive types, but what about objects? _find out!_
+
+And there are many more, this implementation was just to give you the idea of how `useState` and `useSyncExternalStore` works.
+
+
+## Final Thoughts
+
+We didn’t recreate React’s real `useState` implementation here.
+
+Internally, React does something much more using the Fiber architecture and hook tracking.
+
+But building a tiny version like this helps make the “magic” behind hooks feel much more understandable.
+
+And honestly, that’s one of the best ways to learn React internals:
+build simplified versions yourself.
