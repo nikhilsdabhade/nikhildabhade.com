@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function BlogsPage() {
   return (
     <section className="flex flex-col py-12 md:py-24 px-6 max-w-3xl mx-auto">
@@ -6,22 +8,18 @@ export default function BlogsPage() {
       </h1>
 
       <div className="flex flex-col gap-6">
-        <a
-          href="https://dev.to/nikhilsdabhade/build-your-own-react-usestate-hook-under-40-lines-5f9k"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="flex items-start justify-between gap-4">
+        <Link href="/blogs/build-your-own-react-usestate">
+          <div className="flex items-start justify-between gap-4 p-4 -mx-4 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800/50 transition-colors cursor-pointer group">
             <div>
-              <h2 className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 mb-2 hover:text-white transition-colors">
+              <h2 className="text-xl md:text-2xl font-semibold text-neutral-800 dark:text-neutral-200 mb-2 group-hover:text-[#00b377] dark:group-hover:text-[#00e59b] transition-colors">
                 Build Your Own React useState Hook Under 40 Lines
               </h2>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm italic">
-                Published on DEV Community
+              <p className="text-neutral-500 dark:text-neutral-400 text-sm">
+                Understand the mental model behind useState by building a tiny version of it from scratch.
               </p>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </section>
   );
