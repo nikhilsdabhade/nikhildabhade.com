@@ -72,6 +72,14 @@ export default function Navbar() {
             Projects
           </Link>
           <Link
+            href="/resume/Nikhil_Dabhade_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors"
+          >
+            Resume
+          </Link>
+          <Link
             href="https://github.com/nikhilsdabhade"
             target="_blank"
             className="text-neutral-500 hover:text-neutral-900 dark:text-white/50 dark:hover:text-white transition-colors"
