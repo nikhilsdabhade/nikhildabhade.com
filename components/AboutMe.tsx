@@ -12,7 +12,7 @@ export default function AboutMe() {
           Nikhil Dabhade
         </h1>
       <div className="mt-8 space-y-6 text-base font-normal text-neutral-700 dark:text-neutral-300 leading-relaxed">
-        <p>I&apos;m a Frontend Developer and Open Source Builder.</p>
+        <p>Frontend Developer building React applications and open source projects.</p>
         <p>
           For the past 2 years, I&apos;ve been building React and TypeScript
           applications focused on performance and developer experience.
@@ -102,10 +102,10 @@ export default function AboutMe() {
         <p>
           Or Reach me at{" "}
           <a
-            href="mailto: hi@nikhildabhade.com"
+            href="mailto: nikhild12377@gmail.com"
             className="border-b border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 transition-colors pb-0.5"
           >
-            hi@nikhildabhade.com
+            nikhild12377@gmail.com
           </a>
         </p>
       </div>
