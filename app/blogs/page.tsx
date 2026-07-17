@@ -1,5 +1,5 @@
+import { blogs } from "@/content/blogs";
 import Link from "next/link";
-import { blogs } from "./constants";
 
 export default function BlogsPage() {
   return (
