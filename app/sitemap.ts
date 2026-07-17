@@ -1,5 +1,5 @@
+import { blogs } from "@/content/blogs";
 import { MetadataRoute } from "next";
-import { blogs } from "./blogs/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 return [
