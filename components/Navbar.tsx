@@ -60,9 +60,8 @@ export default function Navbar() {
             Blogs
           </Link>
           <Link
-            href="#projects"
+            href="/#projects"
             onClick={(e) => {
-              e.preventDefault();
               document
                 .querySelector("#projects")
                 ?.scrollIntoView({ behavior: "smooth" });
